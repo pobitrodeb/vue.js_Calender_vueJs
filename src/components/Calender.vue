@@ -34,6 +34,7 @@
         <div class="container">
             <div class="d-flex justify-content-between">
                 <button class="btn btn-success" @click="prev"> Prev </button>
+                <button class="text-success"> Develop By pobitrodeb </button>
                 <button class="btn btn-success" @click="next"> Next </button>
             </div>
         </div>
