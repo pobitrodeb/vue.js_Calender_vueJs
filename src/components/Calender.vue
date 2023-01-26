@@ -1,11 +1,11 @@
 <template>
     <section>
        <div class="container">
-        <h2>Calender App With VueJs </h2>
+        <h1 class="text-success"><b>Calender Project By VueJs-3</b> </h1>
        </div>
     </section> 
     <div class="container">
-        <h2>{{  currentMonthName }} {{ currentYear }} </h2>
+        <h2 class="my-4"> <button class="btn bg-success text-white">{{  currentMonthName }} </button> <b>{{ currentYear }} </b></h2>
      <!-- {{ lastDateOfMonth }} -->
      <!-- {{ firstDay }} -->
      <!-- {{ todayDate()}} -->
@@ -33,8 +33,8 @@
     <section>
         <div class="container">
             <div class="d-flex justify-content-between">
-                <button class="btn btn-primary" @click="prev"> Prev </button>
-                <button class="btn btn-primary" @click="next"> Next </button>
+                <button class="btn btn-success" @click="prev"> Prev </button>
+                <button class="btn btn-success" @click="next"> Next </button>
             </div>
         </div>
     </section>
@@ -85,7 +85,7 @@
 
                 let today = new Date().toDateString()
                 // console.log(calenderDate === today) 
-                return calenderDate === today ? 'text-danger' : ''
+                return calenderDate === today ? 'text-white bg-success' : ''
         },
         
     },
@@ -95,6 +95,7 @@
 <style>
     .days p, .dates p {
         width: 14.28%;
+       
     }
     .dates{
         flex-wrap: wrap;
