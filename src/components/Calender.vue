@@ -7,7 +7,8 @@
     <div class="container">
         <h2>{{  currentMonthName }} {{ currentYear }} </h2>
      <!-- {{ lastDateOfMonth }} -->
-     {{ firstDay }}
+     <!-- {{ firstDay }} -->
+     <!-- {{ todayDate()}} -->
 
     </div>
     <section>
@@ -23,7 +24,9 @@
        <div class="container">
         <div class="dates d-flex ">
             <p class="text-center" v-for="day in firstDay" :key="day"></p>
-            <p class="text-center" v-for="date in lastDateOfMonth" :key="date">{{ date }}</p>
+            <p class="text-center" v-for="date in lastDateOfMonth" :key="date" :class="todayDate(date)">{{ date }}</p>
+            <!-- <p class="text-center" v-for="date in lastDateOfMonth" :key="date" :class="date===todayDate() ? 'text-danger' : '' ">{{ date }}</p> -->
+            
         </div>
        </div>
     </section>
@@ -55,7 +58,8 @@
         },
         firstDay(){
 	        return new Date(this.currentYear, this.currentMonthInNumber, 1).getDay() 
-        }
+        },
+     
     }, 
     methods:{
        
@@ -70,11 +74,20 @@
         prev(){
             if(this.currentMonthInNumber === 0){
                 this.currentYear--
-                this.currentMonthInNumber = 12
+                this.currentMonthInNumber = 11
             }else{
                 this.currentMonthInNumber--
             }  
         },
+        todayDate(date){
+                let calenderDate = new Date(this.currentYear, this.currentMonthInNumber,date).
+                toDateString()
+
+                let today = new Date().toDateString()
+                // console.log(calenderDate === today) 
+                return calenderDate === today ? 'text-danger' : ''
+        },
+        
     },
    }
 </script>
