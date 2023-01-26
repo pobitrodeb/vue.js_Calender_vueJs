@@ -27,13 +27,21 @@
         </div>
        </div>
     </section>
+    <section>
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-primary" @click="prev"> Prev </button>
+                <button class="btn btn-primary" @click="next"> Next </button>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
    export default {
     data(){
         return{
-            days:["Sun", "Mond", "Wed", "Tue", "Thu", "Friday", "Sat"],
+            days:["Sun", "Mon", "Wed", "Tue", "Thu", "Friday", "Sat"],
             currentMonthInNumber:new Date().getMonth(),
             currentYear:new Date().getFullYear(),
         }
@@ -48,7 +56,15 @@
         firstDay(){
 	        return new Date(this.currentYear, this.currentMonthInNumber, 1).getDay() 
         }
-    }
+    }, 
+    methods:{
+        prev(){
+            console.log('prev');
+        },
+        next(){
+         this.currentMonthInNumber++
+        }
+    },
    }
 </script>
 
