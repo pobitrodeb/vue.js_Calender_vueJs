@@ -5,7 +5,10 @@
        </div>
     </section> 
     <div class="container">
-        <h2>{{ currentMonth }} 2023 </h2>
+        <h2>{{  currentMonthName }} 2023 </h2>
+     <!-- {{ lastDateOfMonth }} -->
+     {{ firstDay }}
+
     </div>
     <section>
        <div class='container'>
@@ -19,7 +22,8 @@
     <section>
        <div class="container">
         <div class="dates d-flex ">
-            <p class="text-center" v-for="date in 30" :key="date">{{ date }}</p>
+            <p class="text-center" v-for="day in firstDay" :key="day"></p>
+            <p class="text-center" v-for="date in lastDateOfMonth" :key="date">{{ date }}</p>
         </div>
        </div>
     </section>
@@ -30,8 +34,19 @@
     data(){
         return{
             days:["Sun", "Mond", "Wed", "Tue", "Thu", "Friday", "Sat"],
-            // currentMonth:new Date().getMonth(),
-            currentMonth:new Date(2023, 0,26).toLocaleString("default", {month:"long"})
+            currentMonthInNumber:new Date().getMonth(),
+            currentYear:new Date().getFullYear(),
+        }
+    }, 
+    computed:{
+        currentMonthName(){
+            return new Date(this.currentYear, this.currentMonthInNumber,26).toLocaleString("default", {month:"long"})
+        },
+        lastDateOfMonth(){
+	        return new Date(this.currentYear, this.currentMonthInNumber+1, 0).getDate()
+        },
+        firstDay(){
+	        return new Date(this.currentYear, this.currentMonthInNumber, 1).getDay() 
         }
     }
    }
