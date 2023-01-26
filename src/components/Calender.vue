@@ -13,6 +13,13 @@
         </div> 
        </div>
     </section>
+    <section>
+       <div class="container">
+        <div class="dates d-flex ">
+            <p class="text-center" v-for="date in 30" :key="date">{{ date }}</p>
+        </div>
+       </div>
+    </section>
 </template>
 
 <script>
@@ -26,7 +33,10 @@
 </script>
 
 <style>
-    .days p {
+    .days p, .dates p {
         width: 14.28%;
+    }
+    .dates{
+        flex-wrap: wrap;
     }
 </style>
