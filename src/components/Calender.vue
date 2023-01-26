@@ -5,14 +5,28 @@
        </div>
     </section> 
     <section>
-
+       <div class='container'>
+        <div class="days d-flex">
+           <p class="text-center" v-for="(day,index) in days" :key="index">
+            {{ day }}
+            </p>
+        </div> 
+       </div>
     </section>
 </template>
 
-<script lang="ts">
-
+<script>
+   export default {
+    data(){
+        return{
+            days:["Sun", "Mond", "Wed", "Tue", "Thu", "Friday", "Sat"]
+        }
+    }
+   }
 </script>
 
-<style lang="scss" scoped>
-
+<style>
+    .days p {
+        width: 14.28%;
+    }
 </style>
