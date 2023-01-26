@@ -4,6 +4,9 @@
         <h2>Calender App With VueJs </h2>
        </div>
     </section> 
+    <div class="container">
+        <h2>{{ currentMonth }} 2023 </h2>
+    </div>
     <section>
        <div class='container'>
         <div class="days d-flex">
@@ -26,7 +29,9 @@
    export default {
     data(){
         return{
-            days:["Sun", "Mond", "Wed", "Tue", "Thu", "Friday", "Sat"]
+            days:["Sun", "Mond", "Wed", "Tue", "Thu", "Friday", "Sat"],
+            // currentMonth:new Date().getMonth(),
+            currentMonth:new Date(2023, 0,26).toLocaleString("default", {month:"long"})
         }
     }
    }
