@@ -5,7 +5,7 @@
        </div>
     </section> 
     <div class="container">
-        <h2>{{  currentMonthName }} 2023 </h2>
+        <h2>{{  currentMonthName }} {{ currentYear }} </h2>
      <!-- {{ lastDateOfMonth }} -->
      {{ firstDay }}
 
@@ -41,7 +41,7 @@
    export default {
     data(){
         return{
-            days:["Sun", "Mon", "Wed", "Tue", "Thu", "Friday", "Sat"],
+            days:["Sun", "Mon",  "Tue", "Wed", "Thu", "Friday", "Sat"],
             currentMonthInNumber:new Date().getMonth(),
             currentYear:new Date().getFullYear(),
         }
@@ -58,12 +58,23 @@
         }
     }, 
     methods:{
-        prev(){
-            console.log('prev');
-        },
+       
         next(){
-         this.currentMonthInNumber++
-        }
+            if(this.currentMonthInNumber === 11){
+                this.currentYear++
+                this.currentMonthInNumber = 0
+            }else{
+                this.currentMonthInNumber++
+            }       
+        },
+        prev(){
+            if(this.currentMonthInNumber === 0){
+                this.currentYear--
+                this.currentMonthInNumber = 12
+            }else{
+                this.currentMonthInNumber--
+            }  
+        },
     },
    }
 </script>
